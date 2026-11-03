@@ -1,0 +1,6 @@
+{
+  "name": "Vespera Events - Modern Event Discovery",
+  "description": "Discover premier events, cultural festivals, tech summits, and creative workshops across Nepal, connecting people in Kathmandu, Pokhara, Lalitpur, and beyond.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

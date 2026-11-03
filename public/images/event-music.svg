@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pokharaNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0718" />
+      <stop offset="45%" stop-color="#140d2e" />
+      <stop offset="75%" stop-color="#0e152d" />
+      <stop offset="100%" stop-color="#070a16" />
+    </linearGradient>
+    <radialGradient id="purpleStageGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#9333ea" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0a0718" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="lakeWater" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#04060f" />
+    </linearGradient>
+    <linearGradient id="machapuchare" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#140d2e" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & Canvas -->
+  <rect width="800" height="600" fill="url(#pokharaNight)" />
+  <circle cx="400" cy="280" r="320" fill="url(#purpleStageGlow)" />
+
+  <!-- Stars in Pokhara night sky -->
+  <g fill="#f1f5f9" opacity="0.65">
+    <circle cx="120" cy="80" r="1.5" />
+    <circle cx="210" cy="65" r="1.2" />
+    <circle cx="340" cy="90" r="1" />
+    <circle cx="480" cy="50" r="1.5" />
+    <circle cx="620" cy="75" r="1.2" />
+    <circle cx="730" cy="95" r="1" />
+    <circle cx="280" cy="120" r="1.8" opacity="0.9" />
+    <circle cx="560" cy="110" r="1.8" opacity="0.9" />
+  </g>
+
+  <!-- Iconic Fishtail (Machapuchare) / Annapurna Mountain Peak Silhouette -->
+  <!-- Fishtail Double Peak at center -->
+  <polygon points="320,240 375,115 390,140 405,115 460,240" fill="url(#machapuchare)" stroke="#a78bfa" stroke-width="1.2" stroke-opacity="0.4" />
+  <polygon points="120,270 240,165 340,260" fill="url(#machapuchare)" stroke="#818cf8" stroke-width="0.8" stroke-opacity="0.3" />
+  <polygon points="440,260 550,150 680,270" fill="url(#machapuchare)" stroke="#818cf8" stroke-width="0.8" stroke-opacity="0.3" />
+
+  <!-- Phewa Lake Horizon line & Water Surface -->
+  <rect x="0" y="380" width="800" height="220" fill="url(#lakeWater)" />
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.3" />
+
+  <!-- Traditional Nepali Wooden Boat (Dunga) on Lakeside -->
+  <path d="M 120,440 Q 200,470 280,440 L 260,425 Q 200,435 140,425 Z" fill="#090d18" stroke="#64748b" stroke-width="1.2" />
+  <line x1="160" y1="428" x2="160" y2="400" stroke="#475569" stroke-width="1.5" />
+
+  <!-- Stage Lighting & Musical Frequencies Weaving on Lakeside -->
+  <g fill="none" stroke-width="2" stroke-linecap="round">
+    <!-- Acoustic Harmonics -->
+    <path d="M 60,340 Q 150,280 240,340 T 400,340 Q 420,220 450,340 T 560,340 T 740,340" stroke="#c084fc" opacity="0.65" />
+    <path d="M 60,365 Q 160,420 260,365 T 420,365 Q 440,460 480,365 T 600,365 T 740,365" stroke="#38bdf8" opacity="0.6" />
+    <!-- Sarangi / String Instrument Contours at Center Stage -->
+    <path d="M 400,230 L 400,370" stroke="#e0e7ff" stroke-width="2" opacity="0.8" />
+    <circle cx="400" cy="300" r="28" stroke="#8b5cf6" stroke-width="2" opacity="0.7" />
+    <circle cx="400" cy="300" r="12" stroke="#38bdf8" stroke-width="1.5" opacity="0.8" />
+  </g>
+
+  <!-- Water Reflections on Phewa Lake -->
+  <g stroke="#38bdf8" stroke-width="1" opacity="0.25">
+    <line x1="360" y1="410" x2="440" y2="410" />
+    <line x1="330" y1="435" x2="470" y2="435" />
+    <line x1="310" y1="465" x2="490" y2="465" />
+    <line x1="280" y1="500" x2="520" y2="500" />
+    <line x1="240" y1="540" x2="560" y2="540" />
+  </g>
+
+  <!-- Festival Lights / Ambient Bokeh -->
+  <circle cx="240" cy="320" r="3" fill="#c084fc" opacity="0.7" />
+  <circle cx="560" cy="330" r="3.5" fill="#38bdf8" opacity="0.6" />
+  <circle cx="380" cy="350" r="2.5" fill="#f43f5e" opacity="0.6" />
+  <circle cx="430" cy="340" r="2" fill="#fbbf24" opacity="0.8" />
+</svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="heroDarkBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913" />
+      <stop offset="45%" stop-color="#0a1020" />
+      <stop offset="80%" stop-color="#0e1628" />
+      <stop offset="100%" stop-color="#070b14" />
+    </linearGradient>
+
+    <!-- Himalayan Ridge Gradients -->
+    <linearGradient id="himalayanRidge1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0a1020" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="himalayanRidge2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Stage Spotlight 1 (Deep Violet) -->
+    <radialGradient id="stageGlowViolet" cx="30%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#0b1120" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Stage Spotlight 2 (Electric Cyan/Blue) -->
+    <radialGradient id="stageGlowBlue" cx="70%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0b1120" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Center Stage Wash -->
+    <radialGradient id="stageCenterWash" cx="50%" cy="85%" r="70%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3" />
+      <stop offset="40%" stop-color="#4f46e5" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Laser Beams -->
+    <linearGradient id="beam1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35" />
+      <stop offset="80%" stop-color="#6366f1" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="beam2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32" />
+      <stop offset="80%" stop-color="#3b82f6" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Stage Floor Gradient -->
+    <linearGradient id="stageFloor" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="60" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Deep Canvas -->
+  <rect width="1600" height="900" fill="url(#heroDarkBase)" />
+
+  <!-- Subtle Majestic Himalayan Peak Silhouettes on Horizon -->
+  <path d="M 0,380 L 180,260 L 320,330 L 490,190 L 610,280 L 800,160 L 980,270 L 1150,210 L 1320,310 L 1480,230 L 1600,340 L 1600,600 L 0,600 Z" fill="url(#himalayanRidge1)" />
+  <path d="M 0,430 L 220,320 L 380,390 L 580,260 L 760,350 L 920,240 L 1100,340 L 1280,270 L 1440,360 L 1600,300 L 1600,650 L 0,650 Z" fill="url(#himalayanRidge2)" opacity="0.7" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="480" cy="270" r="420" fill="url(#stageGlowViolet)" filter="url(#softGlow)" />
+  <circle cx="1120" cy="225" r="460" fill="url(#stageGlowBlue)" filter="url(#softGlow)" />
+  <circle cx="800" cy="760" r="500" fill="url(#stageCenterWash)" filter="url(#softGlow)" />
+
+  <!-- Architectural Stage Grid & Overhead Rigging Lines -->
+  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1.2">
+    <line x1="0" y1="120" x2="1600" y2="120" />
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="200" y1="0" x2="200" y2="300" />
+    <line x1="500" y1="0" x2="500" y2="300" />
+    <line x1="800" y1="0" x2="800" y2="300" />
+    <line x1="1100" y1="0" x2="1100" y2="300" />
+    <line x1="1400" y1="0" x2="1400" y2="300" />
+  </g>
+
+  <!-- Dramatic Crossed Stage Beams -->
+  <polygon points="250,0 290,0 1050,750 970,750" fill="url(#beam1)" />
+  <polygon points="1350,0 1310,0 550,750 630,750" fill="url(#beam2)" />
+  <polygon points="800,0 820,0 870,700 750,700" fill="url(#stageGlowViolet)" opacity="0.6" />
+
+  <!-- Modern Horizon Platform / Stage Deck -->
+  <path d="M 0,720 L 450,680 L 1150,680 L 1600,720 L 1600,900 L 0,900 Z" fill="url(#stageFloor)" />
+  <line x1="450" y1="680" x2="1150" y2="680" stroke="#818cf8" stroke-width="2" stroke-opacity="0.4" />
+  <line x1="0" y1="720" x2="450" y2="680" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.3" />
+  <line x1="1150" y1="680" x2="1600" y2="720" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Subtle Perspective Stage Grid on Deck -->
+  <g stroke="#4f46e5" stroke-opacity="0.12" stroke-width="1">
+    <line x1="550" y1="680" x2="400" y2="900" />
+    <line x1="680" y1="680" x2="620" y2="900" />
+    <line x1="800" y1="680" x2="800" y2="900" />
+    <line x1="920" y1="680" x2="980" y2="900" />
+    <line x1="1050" y1="680" x2="1200" y2="900" />
+    <line x1="200" y1="750" x2="1400" y2="750" />
+    <line x1="100" y1="820" x2="1500" y2="820" />
+  </g>
+
+  <!-- Audience Crowd Silhouette -->
+  <g fill="#050811" opacity="0.9">
+    <ellipse cx="140" cy="890" rx="36" ry="48" />
+    <ellipse cx="260" cy="880" rx="42" ry="54" />
+    <ellipse cx="390" cy="895" rx="38" ry="46" />
+    <ellipse cx="520" cy="875" rx="45" ry="58" />
+    <ellipse cx="660" cy="885" rx="40" ry="50" />
+    <ellipse cx="790" cy="870" rx="48" ry="62" />
+    <ellipse cx="930" cy="882" rx="44" ry="55" />
+    <ellipse cx="1060" cy="875" rx="46" ry="58" />
+    <ellipse cx="1200" cy="890" rx="40" ry="50" />
+    <ellipse cx="1340" cy="880" rx="44" ry="56" />
+    <ellipse cx="1480" cy="895" rx="38" ry="48" />
+    <circle cx="790" cy="830" r="16" />
+    <circle cx="520" cy="834" r="15" />
+    <circle cx="1060" cy="832" r="15" />
+    <circle cx="260" cy="840" r="14" />
+    <circle cx="1340" cy="840" r="14" />
+  </g>
+
+  <!-- Atmospheric Light Specks -->
+  <g fill="#e0e7ff" opacity="0.45">
+    <circle cx="340" cy="380" r="1.5" />
+    <circle cx="480" cy="460" r="2" />
+    <circle cx="620" cy="310" r="1.5" />
+    <circle cx="720" cy="520" r="2.5" />
+    <circle cx="880" cy="410" r="2" />
+    <circle cx="990" cy="340" r="1.5" />
+    <circle cx="1140" cy="480" r="2" />
+    <circle cx="1260" cy="390" r="1.5" />
+    <circle cx="810" cy="240" r="1.8" />
+  </g>
+
+  <!-- Vignette Scrim -->
+  <rect width="1600" height="900" fill="none" stroke="#040711" stroke-width="60" opacity="0.4" />
+</svg>

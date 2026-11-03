@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nepalTechBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090e1a" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <radialGradient id="screenGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#090e1a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="curvedDisplay" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="mountainPeak" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#090e1a" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#nepalTechBg)" />
+  <circle cx="400" cy="240" r="280" fill="url(#screenGlow)" />
+
+  <!-- Himalayan Mountain Peak Silhouette in Sky/Screen Background -->
+  <path d="M 140,240 L 260,150 L 360,210 L 460,130 L 560,190 L 680,140 L 680,340 L 140,340 Z" fill="url(#mountainPeak)" />
+
+  <!-- Futuristic Perspective Stage Grid -->
+  <g stroke="#3b82f6" stroke-opacity="0.18" stroke-width="1">
+    <line x1="100" y1="460" x2="700" y2="460" />
+    <line x1="50" y1="510" x2="750" y2="510" />
+    <line x1="0" y1="570" x2="800" y2="570" />
+    <line x1="320" y1="420" x2="150" y2="600" />
+    <line x1="380" y1="420" x2="330" y2="600" />
+    <line x1="420" y1="420" x2="470" y2="600" />
+    <line x1="480" y1="420" x2="650" y2="600" />
+  </g>
+
+  <!-- Curved Keynote LED Screen Background (Kathmandu Summit) -->
+  <path d="M 120,130 Q 400,90 680,130 L 680,380 Q 400,340 120,380 Z" fill="#070b14" stroke="url(#curvedDisplay)" stroke-width="2.5" />
+
+  <!-- Screen Content: AI Topology & Nepal Innovation Network Nodes -->
+  <g stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.5" fill="none">
+    <path d="M 180,260 Q 280,180 380,240 T 580,200" />
+    <path d="M 220,310 Q 340,230 460,300 T 640,240" stroke="#818cf8" stroke-opacity="0.4" />
+    <circle cx="280" cy="210" r="4" fill="#38bdf8" />
+    <circle cx="380" cy="240" r="5" fill="#818cf8" />
+    <circle cx="480" cy="205" r="4.5" fill="#c084fc" />
+    <circle cx="580" cy="200" r="5" fill="#38bdf8" />
+    <circle cx="340" cy="270" r="3.5" fill="#60a5fa" />
+    <circle cx="460" cy="300" r="4" fill="#a78bfa" />
+  </g>
+
+  <!-- Keynote Speaker Silhouette on Kathmandu Stage -->
+  <ellipse cx="400" cy="450" rx="60" ry="14" fill="#040711" opacity="0.8" />
+  <g fill="#0b1120" stroke="#475569" stroke-width="0.8">
+    <circle cx="400" cy="355" r="13" fill="#0f172a" />
+    <path d="M 388,370 L 412,370 L 416,425 L 384,425 Z" fill="#0f172a" />
+    <path d="M 412,375 L 434,360 L 442,364" stroke="#64748b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <path d="M 388,375 L 372,395" stroke="#64748b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <line x1="392" y1="425" x2="390" y2="455" stroke="#0f172a" stroke-width="6" stroke-linecap="round" />
+    <line x1="408" y1="425" x2="410" y2="455" stroke="#0f172a" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- Stage Glow Reflection at Base -->
+  <ellipse cx="400" cy="458" rx="85" ry="6" fill="#38bdf8" opacity="0.25" />
+
+  <!-- Overhead Spotlights -->
+  <polygon points="340,0 355,0 430,420 370,420" fill="#38bdf8" opacity="0.06" />
+  <polygon points="460,0 445,0 370,420 430,420" fill="#a855f7" opacity="0.06" />
+</svg>

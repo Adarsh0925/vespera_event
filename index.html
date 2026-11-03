@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vespera Events - Modern Event Discovery</title>
+    <meta
+      name="description"
+      content="Discover premier events, cultural festivals, tech summits, and creative workshops across Nepal, connecting people in Kathmandu, Pokhara, Lalitpur, and beyond."
+    />
+    <meta property="og:title" content="Vespera Events - Modern Event Discovery" />
+    <meta
+      property="og:description"
+      content="Discover premier events, cultural festivals, tech summits, and creative workshops across Nepal, connecting people in Kathmandu, Pokhara, Lalitpur, and beyond."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme Initialization Script (Prevents flash of unstyled theme) -->
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('vespera_theme');
+          if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- ======================================================================
+         1. Sticky Navigation Bar
+         ====================================================================== -->
+    <header class="site-header" id="header">
+      <div class="container nav-container">
+        <!-- Brand Wordmark & Simple Geometric Logo -->
+        <a href="#/" class="brand" id="brandHomeLink" aria-label="Vespera Events Homepage">
+          <svg
+            class="brand-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" stroke-opacity="0.3" />
+            <path
+              d="M16 6L18.8 13.2L26 16L18.8 18.8L16 26L13.2 18.8L6 16L13.2 13.2L16 6Z"
+              fill="url(#brandGrad)"
+            />
+            <defs>
+              <linearGradient id="brandGrad" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8" />
+                <stop offset="0.5" stop-color="#8b5cf6" />
+                <stop offset="1" stop-color="#6366f1" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>Vespera<span class="brand-dot">.</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="#/" class="nav-link" id="navLinkHome">Home</a></li>
+            <li><a href="#/events" class="nav-link" id="navLinkEvents">Events</a></li>
+            <li>
+              <a href="#/my-registrations" class="nav-link" id="navLinkRegistrations">
+                <span>My Registrations</span>
+                <span class="nav-reg-badge" id="navRegistrationsCount" style="display: none;">0</span>
+              </a>
+            </li>
+            <li><a href="#about" class="nav-link" id="navLinkAbout">About</a></li>
+            <li><a href="#contact" class="nav-link" id="navLinkContact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Navigation Search Bar -->
+          <div class="header-search-wrap" role="search">
+            <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="search"
+              id="navSearchInput"
+              class="header-search-input"
+              placeholder="Search events, cities..."
+              aria-label="Search events by name, location, or category"
+              autocomplete="off"
+            />
+            <button
+              type="button"
+              class="search-clear-btn"
+              id="navSearchClear"
+              aria-label="Clear search query"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Theme Toggle Button (Phase 4) -->
+          <button
+            type="button"
+            class="btn-theme-toggle"
+            id="themeToggleBtn"
+            aria-label="Switch to light theme"
+            title="Toggle Light / Dark Theme"
+          >
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+
+          <a href="#/events" class="btn btn-primary btn-sm">Get Started</a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            class="mobile-nav-toggle"
+            id="mobileNavToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileDrawer"
+          >
+            <svg class="icon-hamburger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+        <!-- Mobile Search Input -->
+        <div class="mobile-search-wrap" role="search">
+          <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="search"
+            id="mobileSearchInput"
+            class="mobile-search-input"
+            placeholder="Search events, cities, categories..."
+            aria-label="Search events by name, location, or category"
+            autocomplete="off"
+          />
+          <button
+            type="button"
+            class="search-clear-btn"
+            id="mobileSearchClear"
+            aria-label="Clear search query"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-links">
+          <li><a href="#/" class="mobile-nav-link" id="mobileLinkHome">Home</a></li>
+          <li><a href="#/events" class="mobile-nav-link" id="mobileLinkEvents">Events</a></li>
+          <li>
+            <a href="#/my-registrations" class="mobile-nav-link" id="mobileLinkRegistrations">
+              <span>My Registrations</span>
+              <span class="nav-reg-badge" id="mobileRegistrationsCount" style="display: none;">0</span>
+            </a>
+          </li>
+          <li><a href="#about" class="mobile-nav-link" id="mobileLinkAbout">About</a></li>
+          <li><a href="#contact" class="mobile-nav-link" id="mobileLinkContact">Contact</a></li>
+        </ul>
+        <a href="#/events" class="btn btn-primary mobile-cta">Explore All Events</a>
+
+        <!-- Mobile Drawer Theme Toggle (Phase 4) -->
+        <div class="mobile-drawer-footer">
+          <button
+            type="button"
+            class="mobile-theme-btn"
+            id="mobileThemeToggleBtn"
+            aria-label="Toggle Dark / Light Theme"
+          >
+            <div class="mobile-theme-info">
+              <svg class="mobile-theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+              <svg class="mobile-theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+              <span>Appearance</span>
+            </div>
+            <span class="mobile-theme-badge" id="mobileThemeStatus">Dark</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ====================================================================
+           VIEW 1: HOMEPAGE (Preserved Phase 1 Experience)
+           ==================================================================== -->
+      <div id="homeView" class="site-view active">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+          <!-- Background Imagery with Dark Scrim Overlay & Parallax -->
+          <div class="hero-backdrop" aria-hidden="true">
+            <img
+              src="/images/hero-bg.svg"
+              alt="Atmospheric live event stage and modern auditorium against Himalayan mountains"
+              class="hero-bg-img"
+              id="heroBgImg"
+            />
+            <div class="hero-scrim"></div>
+          </div>
+
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title fade-in-up fade-delay-1">
+                Discover Events.
+                <span class="hero-title-accent">Experience More.</span>
+              </h1>
+
+              <p class="hero-description fade-in-up fade-delay-2">
+                Explore exciting events across Nepal, connect with like-minded people and make
+                every moment memorable.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#/events" class="btn btn-primary fade-in-up fade-delay-3">
+                  Explore Events
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+                <a href="#about" class="btn btn-outline fade-in-up fade-delay-4">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="events-section section-padding" id="events">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">Upcoming Events</h2>
+              <p class="section-subtitle">
+                Handpicked gatherings curated across technology, music festivals, cultural heritage, and workshops throughout Nepal.
+              </p>
+            </div>
+
+            <!-- Events Grid (Rendered dynamically from NEPAL_EVENTS) -->
+            <div class="events-grid" id="homeEventsGrid">
+              <!-- Dynamically populated by JavaScript -->
+            </div>
+
+            <!-- Direct link to dedicated Explore Page -->
+            <div style="text-align: center; margin-top: 3.5rem;">
+              <a href="#/events" class="btn btn-outline" style="padding: 0.85rem 2rem; font-size: 1rem;">
+                Explore All Events in Nepal
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section section-padding" id="about">
+          <div class="about-glow" aria-hidden="true"></div>
+          <div class="container">
+            <div class="about-card-wrapper">
+              <h2 class="section-title">About Vespera</h2>
+              <p class="about-lead">
+                Connecting people with events, cultural experiences, technology conferences, music festivals and workshops throughout Nepal.
+              </p>
+              <p class="about-text">
+                Vespera is a modern event discovery platform built for Nepal. We partner with organizers, innovators, and cultural custodians across Kathmandu, Pokhara, Lalitpur, Bhaktapur, and Chitwan to bring clarity and elegance to live gatherings—from high-energy lakeside festivals to tech summits and artisan heritage exhibitions.
+              </p>
+
+              <div class="about-pillars">
+                <div class="pillar-item">
+                  <h3 class="pillar-title">
+                    <span class="pillar-dot" aria-hidden="true"></span>
+                    Curated Excellence
+                  </h3>
+                  <p class="pillar-desc">
+                    Every listed gathering across Nepal is selected for thought leadership, authentic atmosphere, and distinct cultural value.
+                  </p>
+                </div>
+
+                <div class="pillar-item">
+                  <h3 class="pillar-title">
+                    <span class="pillar-dot" aria-hidden="true"></span>
+                    Nationwide Discovery
+                  </h3>
+                  <p class="pillar-desc">
+                    Intuitive navigation makes discovering your next milestone in Kathmandu Valley, Pokhara, Chitwan, and beyond effortless.
+                  </p>
+                </div>
+
+                <div class="pillar-item">
+                  <h3 class="pillar-title">
+                    <span class="pillar-dot" aria-hidden="true"></span>
+                    Connected Community
+                  </h3>
+                  <p class="pillar-desc">
+                    Bridging organizers, youth innovators, and attendees to cultivate lifelong networks and celebrate Nepal’s vibrant creative spirit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 2: DEDICATED EVENT EXPLORATION PAGE (Phase 2 Feature)
+           ==================================================================== -->
+      <div id="exploreView" class="site-view">
+        <!-- Explore Page Header -->
+        <header class="explore-header-section">
+          <div class="container">
+            <h1 class="explore-title">Explore All Events</h1>
+            <p class="explore-subtitle">
+              Discover conferences, concerts, exhibitions, marathons, and workshops happening across Kathmandu, Pokhara, Lalitpur, Bhaktapur, and Chitwan.
+            </p>
+          </div>
+        </header>
+
+        <!-- Sticky Controls Bar: Search, Category Filters, and Sorting -->
+        <div class="explore-controls-wrap">
+          <div class="container">
+            <div class="explore-search-sort-bar">
+              <!-- Explore Search Input -->
+              <div class="explore-search-box" role="search">
+                <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input
+                  type="search"
+                  id="exploreSearchInput"
+                  class="explore-search-input"
+                  placeholder="Search by event name, venue, city..."
+                  aria-label="Search events"
+                  autocomplete="off"
+                />
+                <button
+                  type="button"
+                  class="search-clear-btn"
+                  id="exploreSearchClear"
+                  aria-label="Clear explore search"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Sorting Dropdown -->
+              <div class="sort-wrap">
+                <label for="eventSortSelect" class="sort-label">Sort by:</label>
+                <div class="sort-select-box">
+                  <select id="eventSortSelect" class="sort-select" aria-label="Sort events by date or name">
+                    <option value="upcoming">Upcoming First</option>
+                    <option value="latest">Latest First</option>
+                    <option value="name-asc">Event Name (A–Z)</option>
+                  </select>
+                  <svg class="sort-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="category-filters-scroll">
+              <ul class="category-filters-list" id="categoryFiltersList" role="tablist">
+                <li><button type="button" class="category-btn active" data-category="All Events" role="tab" aria-selected="true">All Events</button></li>
+                <li><button type="button" class="category-btn" data-category="Technology" role="tab" aria-selected="false">Technology</button></li>
+                <li><button type="button" class="category-btn" data-category="Music" role="tab" aria-selected="false">Music</button></li>
+                <li><button type="button" class="category-btn" data-category="Cultural" role="tab" aria-selected="false">Cultural</button></li>
+                <li><button type="button" class="category-btn" data-category="Sports" role="tab" aria-selected="false">Sports</button></li>
+                <li><button type="button" class="category-btn" data-category="Workshops" role="tab" aria-selected="false">Workshops</button></li>
+                <li><button type="button" class="category-btn" data-category="Business" role="tab" aria-selected="false">Business</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Grid Area -->
+        <section class="explore-grid-section">
+          <div class="container">
+            <div class="explore-status-bar">
+              <span class="explore-result-text" id="exploreStatusBarText">
+                Showing <span class="explore-result-count-bold" id="exploreResultCount">10</span> events across Nepal
+              </span>
+              <button type="button" class="explore-reset-all-btn" id="exploreResetAllBtn" style="display: none;">
+                Reset all filters
+              </button>
+            </div>
+
+            <!-- Dynamic Card Grid -->
+            <div class="explore-cards-grid" id="exploreEventsGrid">
+              <!-- Dynamically populated by JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="events-empty-state" id="exploreEmptyState" style="display: none;">
+              <div class="empty-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  <line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
+              </div>
+              <h3 class="empty-title">No events found</h3>
+              <p class="empty-desc" id="exploreEmptyDesc">
+                We couldn't find any events matching your selected criteria. Try adjusting your search query or selecting a different category.
+              </p>
+              <button type="button" class="btn btn-primary btn-sm" id="exploreEmptyResetBtn">
+                Show All Events
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 3: DEDICATED EVENT DETAILS PAGE (Phase 2 Feature)
+           ==================================================================== -->
+      <div id="detailsView" class="site-view">
+        <div class="details-view-container">
+          <div class="container">
+            <!-- Navigation Back Bar -->
+            <div class="details-nav-bar">
+              <a href="#/events" class="btn-back-nav" id="btnBackToEvents">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12" />
+                  <polyline points="12 19 5 12 12 5" />
+                </svg>
+                <span>Back to Events</span>
+              </a>
+            </div>
+
+            <!-- Hero Banner -->
+            <div class="details-banner-wrap">
+              <img id="detailHeroImg" src="/images/event-tech.svg" alt="" class="details-banner-img" />
+              <div class="details-banner-scrim"></div>
+              <div class="details-banner-content">
+                <div class="meta-unboxed details-meta-top">
+                  <span class="meta-category" id="detailCategory">Category</span>
+                  <span class="meta-separator" aria-hidden="true">·</span>
+                  <span id="detailDate">Date</span>
+                  <span class="meta-separator" aria-hidden="true">·</span>
+                  <span id="detailLocationTag">Location</span>
+                </div>
+                <h1 class="details-main-title" id="detailMainTitle">Event Title</h1>
+              </div>
+            </div>
+
+            <!-- Event Countdown Timer Banner (Phase 4 Feature) -->
+            <div class="event-countdown-card" id="eventCountdownCard">
+              <div class="countdown-header-row">
+                <div class="countdown-badge-wrap">
+                  <span class="countdown-pulse-dot" aria-hidden="true"></span>
+                  <span class="countdown-badge-title" id="countdownStatusBadge">Live Countdown to Event</span>
+                </div>
+                <span class="countdown-nepal-tz">Official Nepal Standard Time (NPT · UTC+05:45)</span>
+              </div>
+              <div class="countdown-timer-grid" id="countdownTimerGrid">
+                <div class="countdown-unit-box">
+                  <span class="countdown-number" id="cdDays">00</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <span class="countdown-colon" aria-hidden="true">:</span>
+                <div class="countdown-unit-box">
+                  <span class="countdown-number" id="cdHours">00</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <span class="countdown-colon" aria-hidden="true">:</span>
+                <div class="countdown-unit-box">
+                  <span class="countdown-number" id="cdMinutes">00</span>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+                <span class="countdown-colon" aria-hidden="true">:</span>
+                <div class="countdown-unit-box">
+                  <span class="countdown-number" id="cdSeconds">00</span>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+              <p class="countdown-passed-msg" id="countdownPassedMsg" style="display: none;"></p>
+            </div>
+
+            <!-- Two-Column Layout Grid -->
+            <div class="details-layout-grid">
+              <!-- Left Content Column -->
+              <div class="details-content-panel">
+                <div>
+                  <h2 class="details-block-title">Event Overview</h2>
+                  <p class="details-body-text" id="detailDetailedDesc"></p>
+                </div>
+
+                <div class="details-highlights-box">
+                  <h3 class="details-block-title">Key Event Highlights</h3>
+                  <ul class="details-highlights-list" id="detailHighlightsList">
+                    <!-- Populated dynamically -->
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Right Sidebar Column -->
+              <aside class="details-sidebar">
+                <!-- Event Quick Facts -->
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-title">Event Logistics</h3>
+                  <ul class="sidebar-info-list">
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Date</span>
+                        <span class="sidebar-info-val" id="detailSidebarDate">-</span>
+                      </div>
+                    </li>
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Schedule</span>
+                        <span class="sidebar-info-val" id="detailSidebarTime">-</span>
+                      </div>
+                    </li>
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Venue & City</span>
+                        <span class="sidebar-info-val" id="detailSidebarVenue">-</span>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- Open in Maps button for location directions -->
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-maps-link"
+                    id="btnOpenInMaps"
+                    aria-label="Open event location in Google Maps for directions"
+                  >
+                    <svg class="maps-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+                      <line x1="9" y1="3" x2="9" y2="18" />
+                      <line x1="15" y1="6" x2="15" y2="21" />
+                    </svg>
+                    <span>Open in Maps</span>
+                    <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+
+                  <!-- Register Now CTA (Phase 3 placeholder point) -->
+                  <button type="button" class="btn-register-cta" id="btnRegisterNow">
+                    <span>Register Now</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </button>
+                  <p class="register-note">Admission is free · Registration required</p>
+                </div>
+
+                <!-- Organizer Information Card -->
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-title">Organizer Information</h3>
+                  <ul class="sidebar-info-list">
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Organization</span>
+                        <span class="sidebar-info-val" id="detailOrganizerName">-</span>
+                        <span style="font-size: 0.8125rem; color: var(--accent-blue);" id="detailOrganizerRole">-</span>
+                      </div>
+                    </li>
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Contact Email</span>
+                        <span class="sidebar-info-val" id="detailOrganizerEmail">-</span>
+                      </div>
+                    </li>
+                    <li class="sidebar-info-row">
+                      <svg class="sidebar-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                      <div class="sidebar-info-content">
+                        <span class="sidebar-info-label">Direct Helpline</span>
+                        <span class="sidebar-info-val" id="detailOrganizerContact">-</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 4: DEDICATED EVENT REGISTRATION PAGE (Phase 3 Feature)
+           ==================================================================== -->
+      <div id="registrationView" class="site-view">
+        <section class="registration-section">
+          <div class="container">
+            <!-- Navigation Breadcrumb -->
+            <div class="registration-top-bar">
+              <button type="button" class="btn-back-breadcrumb" id="btnBackFromReg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12" />
+                  <polyline points="12 19 5 12 12 5" />
+                </svg>
+                <span id="btnBackFromRegLabel">Back to Event</span>
+              </button>
+              <div class="reg-page-tag">
+                <span class="pulse-dot"></span>
+                <span>Nepal Official Event Registration</span>
+              </div>
+            </div>
+
+            <!-- Page Header -->
+            <div class="registration-header">
+              <h1 class="registration-title">Event Registration</h1>
+              <p class="registration-subtitle">
+                Reserve your tickets for Nepal's premier gatherings. Enter attendee details below to receive your instant verification pass.
+              </p>
+            </div>
+
+            <!-- Two-Column Registration Grid -->
+            <div class="registration-grid">
+              <!-- Left Column: Form -->
+              <div class="registration-form-card">
+                <form id="eventRegistrationForm" class="registration-form" novalidate>
+                  <!-- Form Global Alert (Hidden by default) -->
+                  <div class="form-alert-banner" id="formGlobalAlert" role="alert" style="display: none;">
+                    <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    <span id="formGlobalAlertMsg">Please fill in all required fields accurately.</span>
+                  </div>
+
+                  <!-- Field 1: Selected Event (Preselected) -->
+                  <div class="form-group" id="groupEvent">
+                    <label for="regEventSelect" class="form-label">
+                      Select Event <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      <select id="regEventSelect" name="event" class="form-select" required>
+                        <option value="">-- Choose an Event in Nepal --</option>
+                        <!-- Dynamically populated options from NEPAL_EVENTS -->
+                      </select>
+                    </div>
+                    <span class="field-error-msg" id="errRegEvent">Please choose an event to attend.</span>
+                  </div>
+
+                  <!-- Field 2: Full Name -->
+                  <div class="form-group" id="groupFullName">
+                    <label for="regFullName" class="form-label">
+                      Full Name <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      <input
+                        type="text"
+                        id="regFullName"
+                        name="fullName"
+                        class="form-input"
+                        placeholder="e.g. Aarav Sharma"
+                        required
+                        autocomplete="name"
+                      />
+                    </div>
+                    <span class="field-error-msg" id="errRegFullName">Please enter your full name (minimum 2 characters).</span>
+                  </div>
+
+                  <!-- Field 3: Email Address -->
+                  <div class="form-group" id="groupEmail">
+                    <label for="regEmail" class="form-label">
+                      Email Address <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                      <input
+                        type="email"
+                        id="regEmail"
+                        name="email"
+                        class="form-input"
+                        placeholder="e.g. aarav.sharma@example.com"
+                        required
+                        autocomplete="email"
+                      />
+                    </div>
+                    <span class="field-error-msg" id="errRegEmail">Please enter a valid email address.</span>
+                  </div>
+
+                  <!-- Field 4: Phone Number with Nepal / India selector -->
+                  <div class="form-group" id="groupPhone">
+                    <label for="regPhone" class="form-label">
+                      Phone Number (Nepal / India) <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <div class="phone-input-wrap">
+                      <div class="country-prefix-selector-wrap">
+                        <select id="regCountryCode" class="country-code-select" aria-label="Country calling code">
+                          <option value="+977" selected>🇳🇵 +977 (Nepal)</option>
+                          <option value="+91">🇮🇳 +91 (India)</option>
+                        </select>
+                        <svg class="country-code-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </div>
+                      <input
+                        type="tel"
+                        id="regPhone"
+                        name="phone"
+                        class="form-input phone-input"
+                        placeholder="98XXXXXXXX or 97XXXXXXXX"
+                        required
+                        autocomplete="tel"
+                      />
+                    </div>
+                    <span class="field-hint" id="phoneFieldHint">Enter a 10-digit mobile number for Nepal (+977: 98/97) or India (+91: 6-9).</span>
+                    <span class="field-error-msg" id="errRegPhone">Please enter a valid 10-digit mobile number.</span>
+                  </div>
+
+                  <!-- Row: Gender & Number of Participants -->
+                  <div class="form-row-two-col">
+                    <!-- Field 5: Gender -->
+                    <div class="form-group" id="groupGender">
+                      <label for="regGender" class="form-label">
+                        Gender <span class="required-star" aria-hidden="true">*</span>
+                      </label>
+                      <div class="input-icon-wrap">
+                        <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 16v-4" />
+                          <path d="M12 8h.01" />
+                        </svg>
+                        <select id="regGender" name="gender" class="form-select" required>
+                          <option value="">Select Gender</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other / Non-Binary</option>
+                          <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                      </div>
+                      <span class="field-error-msg" id="errRegGender">Please select a gender option.</span>
+                    </div>
+
+                    <!-- Field 6: Number of Participants -->
+                    <div class="form-group" id="groupParticipants">
+                      <label for="regParticipants" class="form-label">
+                        Number of Participants <span class="required-star" aria-hidden="true">*</span>
+                      </label>
+                      <div class="input-icon-wrap">
+                        <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <input
+                          type="number"
+                          id="regParticipants"
+                          name="participants"
+                          class="form-input"
+                          min="1"
+                          max="10"
+                          value="1"
+                          required
+                        />
+                      </div>
+                      <span class="field-hint">Min 1, Max 10 attendees</span>
+                      <span class="field-error-msg" id="errRegParticipants">Must be at least 1 participant (up to 10).</span>
+                    </div>
+                  </div>
+
+                  <!-- Free Community Admission note -->
+                  <div class="form-assurance-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="assurance-icon" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <div>
+                      <strong>Free Community Admission</strong>
+                      <p>Admission is 100% complimentary. Your pass details will be stored securely on this device and verified at the venue.</p>
+                    </div>
+                  </div>
+
+                  <!-- Submit Button with loading state -->
+                  <button type="submit" class="btn btn-primary btn-submit-reg" id="btnSubmitRegistration">
+                    <span class="submit-text">Confirm Registration</span>
+                    <svg class="submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span class="loading-spinner" aria-hidden="true"></span>
+                  </button>
+                </form>
+              </div>
+
+              <!-- Right Column: Event Preview Summary Card -->
+              <aside class="registration-sidebar">
+                <div class="reg-event-preview-card" id="regEventPreviewCard">
+                  <div class="preview-img-wrap">
+                    <img id="regPreviewImg" src="/images/event-tech.svg" alt="Event Preview" class="preview-img" />
+                    <span class="preview-category-badge" id="regPreviewCategory">Technology</span>
+                  </div>
+                  <div class="preview-body">
+                    <h3 class="preview-title" id="regPreviewTitle">Nepal Technology & Innovation Summit</h3>
+                    <p class="preview-desc" id="regPreviewDesc">
+                      Nepal's premier tech convergence in Kathmandu.
+                    </p>
+
+                    <div class="preview-meta-list">
+                      <div class="preview-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" />
+                          <line x1="8" y1="2" x2="8" y2="6" />
+                          <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <div>
+                          <span class="meta-label">Date & Time</span>
+                          <span class="meta-val" id="regPreviewDateTime">-</span>
+                        </div>
+                      </div>
+
+                      <div class="preview-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <div>
+                          <span class="meta-label">Venue & City</span>
+                          <span class="meta-val" id="regPreviewVenue">-</span>
+                        </div>
+                      </div>
+
+                      <div class="preview-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="12" y1="16" x2="12" y2="12" />
+                          <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        <div>
+                          <span class="meta-label">Organizer Helpline</span>
+                          <span class="meta-val" id="regPreviewContact">+977 1-4235890</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="preview-ticket-stub">
+                      <div class="stub-col">
+                        <span class="stub-label">Ticket Type</span>
+                        <span class="stub-val">Complimentary Pass</span>
+                      </div>
+                      <div class="stub-col stub-col-right">
+                        <span class="stub-label">Attendees</span>
+                        <span class="stub-val" id="regPreviewAttendees">1 Person</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 5: REGISTRATION SUCCESS & CONFIRMATION PASS (Phase 3 Feature)
+           ==================================================================== -->
+      <div id="confirmationView" class="site-view">
+        <section class="confirmation-section">
+          <div class="container">
+            <div class="confirmation-wrapper">
+              <!-- Success Banner -->
+              <div class="confirmation-hero">
+                <div class="success-icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <h1 class="conf-title">Registration Confirmed!</h1>
+                <p class="conf-subtitle">
+                  Your registration has been successfully recorded. Save or screenshot your unique Verification Pass below for fast check-in at the venue.
+                </p>
+              </div>
+
+              <!-- Ticket Pass Card -->
+              <div class="ticket-pass-card" id="ticketPassCard">
+                <!-- Card Header -->
+                <div class="ticket-pass-header">
+                  <div class="ticket-brand">
+                    <span class="ticket-brand-name">Vespera<span class="brand-dot">.</span></span>
+                    <span class="ticket-status-pill">Active · Confirmed</span>
+                  </div>
+                  <div class="ticket-id-wrap">
+                    <span class="ticket-id-label">Registration ID</span>
+                    <div class="ticket-id-row">
+                      <span class="ticket-id-value" id="confRegId">VSP-2026-NPL-0000</span>
+                      <button type="button" class="btn-copy-id" id="btnCopyRegId" title="Copy Registration ID" aria-label="Copy Registration ID">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                        <span class="copy-tooltip" id="copyTooltip">Copied!</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket Body Grid -->
+                <div class="ticket-pass-body">
+                  <div class="ticket-body-layout">
+                    <!-- Left Column: Event details & Attendee metadata -->
+                    <div class="ticket-details-col">
+                      <div class="ticket-main-col">
+                        <span class="ticket-event-category" id="confEventCategory">Technology</span>
+                        <h2 class="ticket-event-name" id="confEventName">-</h2>
+                        <p class="ticket-venue" id="confEventVenue">-</p>
+                      </div>
+
+                      <div class="ticket-grid-details">
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Attendee Name</span>
+                          <span class="ticket-val" id="confAttendeeName">-</span>
+                        </div>
+
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Event Date & Time</span>
+                          <span class="ticket-val" id="confEventDateTime">-</span>
+                        </div>
+
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Contact Details</span>
+                          <span class="ticket-val" id="confContact">-</span>
+                        </div>
+
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Total Participants</span>
+                          <span class="ticket-val" id="confParticipantsCount">1 Attendee</span>
+                        </div>
+
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Gender</span>
+                          <span class="ticket-val" id="confGender">-</span>
+                        </div>
+
+                        <div class="ticket-info-block">
+                          <span class="ticket-label">Registration Timestamp</span>
+                          <span class="ticket-val" id="confTimestamp">-</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right Column: Verification QR Code containing the Registration ID -->
+                    <div class="ticket-qr-col">
+                      <div class="ticket-qr-card" id="ticketQrCard">
+                        <div class="ticket-qr-header">
+                          <span class="ticket-qr-badge">Gate Check-in QR</span>
+                        </div>
+                        <div class="ticket-qr-frame">
+                          <canvas id="ticketQrCanvas" class="ticket-qr-canvas" width="140" height="140" aria-label="Official Admission QR Code containing Registration ID"></canvas>
+                        </div>
+                        <div class="ticket-qr-footer">
+                          <span class="ticket-qr-id" id="ticketQrIdLabel">VSP-2026-NPL-0000</span>
+                          <span class="ticket-qr-scan-label">Scan to verify at gate</span>
+                          <button type="button" class="btn-save-qr" id="btnSaveQr" title="Save QR code image to device">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                              <polyline points="7 10 12 15 17 10" />
+                              <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            <span>Save QR Image</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket Notch Divider -->
+                <div class="ticket-divider">
+                  <div class="ticket-notch notch-left"></div>
+                  <div class="ticket-dashed-line"></div>
+                  <div class="ticket-notch notch-right"></div>
+                </div>
+
+                <!-- Ticket Footer -->
+                <div class="ticket-pass-footer">
+                  <div class="ticket-verified-seal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="seal-icon">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <polyline points="9 12 11 14 15 10" />
+                    </svg>
+                    <span>Vespera Verified Nepal Admission · Complimentary Pass</span>
+                  </div>
+                  <div class="ticket-footer-actions">
+                    <button type="button" class="btn-print-ticket" id="btnPrintTicket" title="Print this admission ticket">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9" />
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                        <rect x="6" y="14" width="12" height="8" />
+                      </svg>
+                      <span>Print Pass</span>
+                    </button>
+                    <button type="button" class="btn-download-ticket" id="btnDownloadTicket" title="Download pass summary file">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      <span>Download</span>
+                    </button>
+                    <button type="button" class="btn-cancel-ticket-card" id="btnCancelFromCard" title="Cancel this admission pass">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                      </svg>
+                      <span>Cancel Pass</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Toast Feedback Banner -->
+              <div class="print-toast" id="printToast" role="status" aria-live="polite" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="toast-icon">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span id="printToastMsg">Opening print dialog...</span>
+              </div>
+
+              <!-- Navigation CTA Buttons -->
+              <div class="confirmation-actions">
+                <button type="button" class="btn btn-primary" id="btnPrintPassAlt">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                    <polyline points="6 9 6 2 18 2 18 9" />
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <rect x="6" y="14" width="12" height="8" />
+                  </svg>
+                  <span>Print Ticket Pass</span>
+                </button>
+                <button type="button" class="btn btn-outline btn-danger-hover" id="btnCancelPassAlt">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  </svg>
+                  <span>Cancel Pass</span>
+                </button>
+                <a href="#/events" class="btn btn-secondary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                  <span>Explore More Events</span>
+                </a>
+                <a href="#/my-registrations" class="btn btn-outline" id="btnGoMyRegistrations">
+                  <span>View All Registrations</span>
+                </a>
+                <a href="#/" class="btn btn-outline">
+                  <span>Back to Home</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 6: MY REGISTRATIONS MANAGEMENT (Phase 3 Feature)
+           ==================================================================== -->
+      <div id="myRegistrationsView" class="site-view">
+        <section class="my-reg-section">
+          <div class="container">
+            <div class="my-reg-header">
+              <div class="my-reg-title-wrap">
+                <h1 class="my-reg-title">My Registrations</h1>
+                <p class="my-reg-subtitle">
+                  Manage and access your registered event passes stored locally on this device.
+                </p>
+              </div>
+              <a href="#/events" class="btn btn-primary btn-sm">
+                <span>Browse More Events</span>
+              </a>
+            </div>
+
+            <!-- List Container -->
+            <div id="myRegListContainer" class="my-reg-list">
+              <!-- Dynamically populated or empty state -->
+            </div>
+
+            <!-- Empty State for My Registrations -->
+            <div id="myRegEmptyState" class="events-empty-state" style="display: none;">
+              <div class="empty-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <h3 class="empty-title">No registrations found</h3>
+              <p class="empty-desc">
+                You haven't registered for any events yet. Explore upcoming events in Kathmandu, Pokhara, Lalitpur, and Chitwan to reserve your free pass.
+              </p>
+              <a href="#/events" class="btn btn-primary btn-sm">Explore Events in Nepal</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ======================================================================
+         4. Footer
+         ====================================================================== -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Column 1: Brand & Description -->
+          <div class="footer-brand-col">
+            <a href="#/" class="footer-brand">
+              <svg
+                class="brand-icon"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" stroke-opacity="0.3" />
+                <path
+                  d="M16 6L18.8 13.2L26 16L18.8 18.8L16 26L13.2 18.8L6 16L13.2 13.2L16 6Z"
+                  fill="url(#brandGradFooter)"
+                />
+                <defs>
+                  <linearGradient id="brandGradFooter" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#38bdf8" />
+                    <stop offset="0.5" stop-color="#8b5cf6" />
+                    <stop offset="1" stop-color="#6366f1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>Vespera<span class="brand-dot">.</span></span>
+            </a>
+            <p class="footer-desc">
+              Nepal’s premier event discovery platform uniting creators, innovators, and communities through exceptional live experiences across Kathmandu, Pokhara, Lalitpur, and beyond.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div>
+            <h4 class="footer-heading">Navigation</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#/" class="footer-nav-link">Home</a></li>
+              <li><a href="#/events" class="footer-nav-link">Explore All Events</a></li>
+              <li><a href="#/my-registrations" class="footer-nav-link">My Registrations</a></li>
+              <li><a href="#about" class="footer-nav-link">About Us</a></li>
+              <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Event Categories -->
+          <div>
+            <h4 class="footer-heading">Disciplines</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#/events" class="footer-nav-link footer-cat-link" data-cat="Technology">Technology & AI</a></li>
+              <li><a href="#/events" class="footer-nav-link footer-cat-link" data-cat="Music">Music Festivals</a></li>
+              <li><a href="#/events" class="footer-nav-link footer-cat-link" data-cat="Cultural">Heritage & Arts</a></li>
+              <li><a href="#/events" class="footer-nav-link footer-cat-link" data-cat="Sports">Sports & Marathons</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Information -->
+          <div>
+            <h4 class="footer-heading">Contact Information</h4>
+            <address style="font-style: normal;">
+              <ul class="footer-contact-list">
+                <li class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <a href="mailto:contact@vesperaevents.np" class="contact-link">contact@vesperaevents.np</a>
+                </li>
+                <li class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <a href="tel:+97714258901" class="contact-link">+977 1-4258901</a>
+                </li>
+                <li class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span>Durbarmarg, Ward 1, Kathmandu 44600, Nepal</span>
+                </li>
+              </ul>
+            </address>
+
+            <!-- Social Media Links -->
+            <div class="footer-social-links" aria-label="Social media links">
+              <!-- X / Twitter -->
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Visit Vespera on X (formerly Twitter)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Visit Vespera on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Visit Vespera on Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Visit Vespera on YouTube">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom: Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Vespera Events. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ======================================================================
+         Interactive Pass Cancellation Modal (Reason required)
+         ====================================================================== -->
+    <div class="cancel-modal-backdrop" id="cancelModal" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle" style="display: none;">
+      <div class="cancel-modal-card">
+        <!-- Modal Header -->
+        <div class="cancel-modal-header">
+          <div class="cancel-modal-badge-row">
+            <div class="cancel-warning-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="cancel-modal-title" id="cancelModalTitle">Cancel Event Registration</h3>
+              <p class="cancel-modal-subtitle">You are about to cancel this admission pass. Please provide a reason.</p>
+            </div>
+          </div>
+          <button type="button" class="cancel-modal-close" id="btnCloseCancelModal" aria-label="Close cancel modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Target Pass Info Summary -->
+        <div class="cancel-pass-summary" id="cancelPassSummary">
+          <div class="cancel-pass-meta-col">
+            <span class="cancel-pass-label">Registration Pass ID</span>
+            <span class="cancel-pass-id" id="cancelTargetRegId">VSP-2026-NPL-0000</span>
+          </div>
+          <div class="cancel-pass-meta-col">
+            <span class="cancel-pass-label">Event</span>
+            <span class="cancel-pass-name" id="cancelTargetEventName">Event Name</span>
+          </div>
+        </div>
+
+        <!-- Cancellation Form -->
+        <form id="cancelPassForm" class="cancel-form" novalidate>
+          <div class="form-group" id="groupCancelReason">
+            <label for="cancelReasonSelect" class="form-label">
+              Reason for Cancellation <span class="required-star" aria-hidden="true">*</span>
+            </label>
+            <div class="input-icon-wrap">
+              <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <select id="cancelReasonSelect" class="form-select" required>
+                <option value="">-- Please select a reason for cancellation --</option>
+                <option value="Schedule conflict / Date changed">Schedule conflict / Date changed</option>
+                <option value="Unable to travel to venue (Kathmandu / Pokhara / etc.)">Unable to travel to venue</option>
+                <option value="Registered by mistake / Duplicate booking">Registered by mistake / Duplicate booking</option>
+                <option value="Work / Academic emergency">Work / Academic emergency</option>
+                <option value="Health or personal emergency">Health or personal emergency</option>
+                <option value="Event no longer relevant to my interests">Event no longer relevant to my interests</option>
+                <option value="Other reason">Other reason</option>
+              </select>
+            </div>
+            <span class="field-error-msg" id="errCancelReason">Please select a reason to cancel this pass.</span>
+          </div>
+
+          <!-- Optional Detailed Notes -->
+          <div class="form-group" id="groupCancelNote">
+            <label for="cancelAdditionalNote" class="form-label">
+              Additional Details <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: normal;">(Optional)</span>
+            </label>
+            <textarea
+              id="cancelAdditionalNote"
+              class="form-textarea"
+              rows="2"
+              placeholder="Provide any feedback for the organizers (optional)..."
+            ></textarea>
+          </div>
+
+          <!-- Consequence Notice -->
+          <div class="cancel-warning-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <span>This action will permanently invalidate your admission QR/Pass and free up the seat for other attendees.</span>
+          </div>
+
+          <!-- Actions -->
+          <div class="cancel-modal-actions">
+            <button type="button" class="btn btn-secondary btn-sm" id="btnDismissCancelModal">
+              Keep My Pass
+            </button>
+            <button type="submit" class="btn btn-danger btn-sm" id="btnConfirmCancellation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+              <span>Confirm & Cancel Pass</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Floating Back to Top Button (Phase 4 Enhancement) -->
+    <button
+      type="button"
+      class="back-to-top-btn"
+      id="backToTopBtn"
+      aria-label="Scroll back to top"
+      title="Back to Top"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5" />
+        <polyline points="5 12 12 5 19 12" />
+      </svg>
+    </button>
+
+    <!-- Vanilla JavaScript Entry -->
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>

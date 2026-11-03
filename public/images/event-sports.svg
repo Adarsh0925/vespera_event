@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sportsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1a" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#14233c" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="65%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#080e1a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="mountainRidge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="800" height="600" fill="url(#sportsBg)" />
+  <circle cx="520" cy="180" r="240" fill="url(#sunGlow)" />
+
+  <!-- Mountain Peak Ridges (Sarangkot / Annapurna Trail) -->
+  <polygon points="40,280 180,140 290,230 420,110 560,220 720,130 800,200 800,420 0,420" fill="url(#mountainRidge)" />
+  <polygon points="0,320 140,220 260,300 390,190 520,290 680,210 800,310 800,480 0,480" fill="#0b1222" opacity="0.8" />
+
+  <!-- Mountain Running Ridge / Curving Trail -->
+  <path d="M 0,520 Q 220,440 380,480 T 800,460 L 800,600 L 0,600 Z" fill="#070b14" />
+  <path d="M 0,520 Q 220,440 380,480 T 800,460" stroke="url(#trailGrad)" stroke-width="3" fill="none" opacity="0.8" />
+  <path d="M 40,540 Q 260,465 420,505 T 760,485" stroke="#818cf8" stroke-width="1.2" stroke-dasharray="4 6" fill="none" opacity="0.5" />
+
+  <!-- Runner Silhouettes on the Himalayan Ridge -->
+  <!-- Lead Runner in full sprint -->
+  <g fill="#38bdf8" opacity="0.95" transform="translate(380, 410)">
+    <!-- Head -->
+    <circle cx="20" cy="-40" r="7" />
+    <!-- Torso leaning forward -->
+    <line x1="18" y1="-33" x2="10" y2="-12" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" />
+    <!-- Running Arms -->
+    <line x1="16" y1="-28" x2="28" y2="-22" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <line x1="28" y1="-22" x2="34" y2="-12" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <line x1="16" y1="-28" x2="4" y2="-22" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <line x1="4" y1="-22" x2="-2" y2="-30" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+    <!-- Running Legs -->
+    <line x1="10" y1="-12" x2="24" y2="4" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+    <line x1="24" y1="4" x2="28" y2="24" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="10" y1="-12" x2="-6" y2="2" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+    <line x1="-6" y1="2" x2="-14" y2="-8" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Second Runner -->
+  <g fill="#818cf8" opacity="0.8" transform="translate(280, 425) scale(0.85)">
+    <circle cx="20" cy="-40" r="7" />
+    <line x1="18" y1="-33" x2="10" y2="-12" stroke="#818cf8" stroke-width="5" stroke-linecap="round" />
+    <line x1="10" y1="-12" x2="22" y2="6" stroke="#818cf8" stroke-width="4" stroke-linecap="round" />
+    <line x1="22" y1="6" x2="26" y2="24" stroke="#818cf8" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="10" y1="-12" x2="-4" y2="0" stroke="#818cf8" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Elevation Profile / Dynamic Trail Telemetry overlay -->
+  <g stroke="#38bdf8" stroke-width="1.2" opacity="0.4" fill="none">
+    <polyline points="500,480 540,430 580,450 630,390 680,420 720,380" />
+    <circle cx="540" cy="430" r="3" fill="#38bdf8" />
+    <circle cx="630" cy="390" r="3" fill="#818cf8" />
+    <circle cx="720" cy="380" r="3" fill="#c084fc" />
+  </g>
+
+  <!-- Trail Markers / Summit Flags (Nepali prayer flag string) -->
+  <g stroke="#64748b" stroke-width="0.8">
+    <line x1="160" y1="360" x2="280" y2="380" />
+    <polygon points="175,364 190,366 182,376" fill="#38bdf8" />
+    <polygon points="195,367 210,369 202,379" fill="#f8fafc" />
+    <polygon points="215,370 230,372 222,382" fill="#ef4444" />
+    <polygon points="235,373 250,375 242,385" fill="#22c55e" />
+    <polygon points="255,376 270,378 262,388" fill="#eab308" />
+  </g>
+</svg>

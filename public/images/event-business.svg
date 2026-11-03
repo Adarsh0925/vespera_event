@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bizBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c18" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#191d38" />
+    </linearGradient>
+    <radialGradient id="bizGlow" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#070c18" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bizBg)" />
+  <circle cx="400" cy="240" r="280" fill="url(#bizGlow)" />
+
+  <!-- Modern Executive Boardroom / Convention Glass Architecture -->
+  <g stroke="#334155" stroke-opacity="0.25" stroke-width="1.2">
+    <line x1="120" y1="80" x2="120" y2="460" />
+    <line x1="260" y1="60" x2="260" y2="480" />
+    <line x1="540" y1="60" x2="540" y2="480" />
+    <line x1="680" y1="80" x2="680" y2="460" />
+    <!-- Architectural diagonal mullions -->
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="260" x2="800" y2="260" />
+  </g>
+
+  <!-- Big Futuristic Holographic Growth / Venture Investment Chart -->
+  <path d="M 160,380 L 260,330 L 370,350 L 480,240 L 590,260 L 680,160 L 680,420 L 160,420 Z" fill="url(#chartGrad)" />
+  <path d="M 160,380 L 260,330 L 370,350 L 480,240 L 590,260 L 680,160" stroke="url(#lineGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Chart Key Milestone Dots -->
+  <circle cx="260" cy="330" r="4.5" fill="#38bdf8" />
+  <circle cx="370" cy="350" r="4.5" fill="#60a5fa" />
+  <circle cx="480" cy="240" r="5" fill="#818cf8" />
+  <circle cx="590" cy="260" r="4.5" fill="#a78bfa" />
+  <circle cx="680" cy="160" r="6" fill="#c084fc" />
+
+  <!-- Conference Table Perspective -->
+  <polygon points="120,440 680,440 760,580 40,580" fill="#0d1527" stroke="#334155" stroke-width="1.5" />
+  <line x1="120" y1="440" x2="680" y2="440" stroke="#6366f1" stroke-width="2" stroke-opacity="0.6" />
+
+  <!-- Business Executives / Investors Silhouettes -->
+  <g fill="#070b14" opacity="0.9">
+    <!-- Center speaker presenting -->
+    <circle cx="400" cy="390" r="14" />
+    <path d="M 380,440 C 380,410 420,410 420,440 Z" />
+    <!-- Left panelist -->
+    <circle cx="280" cy="410" r="13" />
+    <path d="M 262,450 C 262,425 298,425 298,450 Z" />
+    <!-- Right panelist -->
+    <circle cx="520" cy="410" r="13" />
+    <path d="M 502,450 C 502,425 538,425 538,450 Z" />
+  </g>
+
+  <!-- Clean ambient light reflections on table -->
+  <ellipse cx="400" cy="460" rx="90" ry="8" fill="#38bdf8" opacity="0.2" />
+</svg>
