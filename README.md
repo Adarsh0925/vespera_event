@@ -49,7 +49,7 @@ Vespera/
 ```
 
 ## How to Run the Project
-Url: https://vespera-event-5efu.vercel.app/#/
+Url: https://vespera-event-5efu.vercel.app
 
 1. Clone the repository:
 
